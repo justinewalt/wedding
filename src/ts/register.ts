@@ -1,14 +1,15 @@
 export function register(element: HTMLDivElement) {
-  element.innerHTML = `
+	element.innerHTML = `
+    <h2>RSVP</h2>
     <div class="container mx-auto p-4">
             <form
                 id="register"
-                  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                  class="">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
                         I, your name here
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="Name" type="text" autocomplete="name" placeholder="Your Name">
+                    <input class="" id="name" name="Name" type="text" autocomplete="name" placeholder="Your Name">
                     and
                 </div>
                 <div class="mb-4">
@@ -46,55 +47,54 @@ export function register(element: HTMLDivElement) {
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="song">
                       I'll go to the dance floor if I hear this song
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="song" name="Song" type="text" placeholder="Bohemian Rhapsody">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="song" name="Song" type="text" placeholder="Bohemian Rhapsody" maxlength="200">
                 </div>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between buttonPadding">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Submit
                     </button>
                 </div>
             </form>
         </div>
-        <div id="spinner" style="display:none;">Loading...</div>
+        <div id="spinner" style="display:none;">Registering you for the wedding now...</div>
+        <div id="success" style="display:none">
+            <p>Thanks for registering for our wedding. We'll send any important changes or updated infomration via email.</p>
+            <h3>See you in November!</h3>
+        </div>
     `;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("register") as HTMLFormElement;
-  const spinner = document.getElementById("spinner") as HTMLElement;
+window.addEventListener("DOMContentLoaded", function () {
+	const form = document.getElementById("register") as HTMLFormElement;
+	const spinner = document.getElementById("spinner") as HTMLElement;
+	const success = document.getElementById("success") as HTMLElement;
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent form from refreshing the page
-    spinner.style.display = "block"; // Show spinner
-    form.style.display = "none"; // hide form
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault(); 
+		spinner.style.display = "block"; 
+		form.style.display = "none"; 
 
-    console.log(`what is form`, form);
-    const formData = new FormData(form);
+		const formData = new FormData(form);
 
-    // Replace '/your-endpoint' with the actual endpoint you're submitting the form to
-    try {
-      console.log(`what is form data? `, formData);
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw-v1Us68ijcAijONyJLxXrHAOxuC2SgbHQ1BUf4xexS3K1KT3hRRijGQvUXPsmGGgCgA/exec",
-        {
-          method: "POST",
-          body: formData,
-        },
-      );
-      if (response.ok) {
-        // Handle success, hide spinner
-        console.log("Form submitted successfully");
-        spinner.style.display = "none";
-        // You might want to clear the form or redirect the user
-      } else {
-        // Handle server errors or invalid responses
-        console.error("Server responded with an error");
-        spinner.style.display = "none";
-      }
-    } catch (error) {
-      // Handle network errors
-      console.error("Submission failed", error);
-      spinner.style.display = "none";
-    }
-  });
+		try {
+			const response = await fetch(
+				"https://script.google.com/macros/s/AKfycbw-v1Us68ijcAijONyJLxXrHAOxuC2SgbHQ1BUf4xexS3K1KT3hRRijGQvUXPsmGGgCgA/exec",
+				{
+					method: "POST",
+					body: formData,
+				},
+			);
+			if (response.ok) {
+				console.log("Form submitted successfully");
+				spinner.style.display = "none";
+				success.style.display = "block";
+			} else {
+				console.error("Server responded with an error");
+				spinner.style.display = "none";
+			}
+		} catch (error) {
+			console.error("Submission failed", error);
+			spinner.style.display = "none";
+		}
+	});
 });

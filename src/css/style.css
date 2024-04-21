@@ -1,17 +1,48 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: var(--regular-font), Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     line-height: 1.5;
-    font-weight: 400;
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color-scheme: light;
+    color: var(--primary-orange);
+    background-color: #fffefe;
+    text-shadow: 2px 2px 4px white;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --primary-blue: #2646C7;
+    --primary-orange: #D45935;
+    --secondary-yellow: #EDA847;
+    --secondary-pink: #FAC0AC;
+    --secondary-green: #78732F;
+
+    --bold-font: 'SharpGroteskBold25';
+    --regular-font: 'SharpGroteskLight20';
+    --medium-font: 'SharpGroteskMedium15';
 }
+
+@font-face {
+    font-family: 'SharpGroteskLight20';
+    src: url('../../fonts/SharpGrotesk-Light20.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SharpGroteskBold25';
+    src: url('../../fonts/SharpGrotesk-Bold25.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SharpGroteskMedium15';
+    src: url('../../fonts/SharpGrotesk-Medium15.woff2') format('woff2');
+}
+
+* {
+  box-sizing: border-box;
+  /* outline: 4px solid red; */
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -19,82 +50,288 @@ html {
 
 a {
     font-weight: 500;
-    color: #646cff;
+    color: var(--primary-blue);
     text-decoration: inherit;
 }
+
 a:hover {
-    color: #535bf2;
+    color: var(--primary-orange);
 }
+
+.topnav .icon {
+  display: none;
+}
+
+#myNavHeader .icon i {
+  font-size: 34px; 
+}
+
+#header {
+    padding-bottom: 15px;
+}
+
 
 body {
     margin: 0;
     display: flex;
     place-items: center;
-    min-width: 320px;
+    min-width: 300px;
     min-height: 100vh;
 }
 
 h1 {
+    font-family: var(--bold-font);
     font-size: 3.2em;
     line-height: 1.1;
+    overflow-wrap: break-word;
+        word-wrap: break-word;
+}
+
+h2 {
+    font-family: var(--bold-font);
+    font-size: 2.5em;
+    line-height: 1.1;
+    padding-top: 20px;
+}
+
+h3 {
+    font-family: var(--bold-font);
+    font-size: 2.2em;
+    line-height: 1.1;
+}
+
+h1.title {
+    text-shadow: 2px 2px 4px white;
 }
 
 #app {
     max-width: 1280px;
+    min-width: 300px;
     margin: 0 auto;
     padding: 2rem;
-    text-align: center;
+    /* text-align: center; */
 }
 
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-    filter: drop-shadow(0 0 2em #3178c6aa);
+#welcome {
+    text-align: right;
 }
 
-.card {
-    padding: 2em;
+#theCouple {
+    text-align: left;
 }
 
-.read-the-docs {
-    color: #888;
+#schedule {
+    text-align: right;
+}
+
+#specialGuests {
+    text-align: left;
+}
+
+#accomidations {
+    text-align: right;
+}
+
+#venue {
+    text-align: left;
+}
+
+#registerPage {
+    text-align: right;
+}
+
+#bigThanks {
+    text-align: left;
+}
+
+.google-maps {
+    filter: grayscale(80%) invert(80%) contrast(100%);
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+}
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.buttonPadding {
+    padding-top: 8px;
 }
 
 button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
+    font-size: 1.4em;
+    font-weight: 620;
+    font-family: var(--medium-font);
+    background-color: var(--primary-blue);
     cursor: pointer;
     transition: border-color 0.25s;
+    color: var(--primary-orange);
 }
 button:hover {
-    border-color: #646cff;
+    border-color: var(--secondary-yellow);
+    background-color: var(--secondary-yellow);
+    color: var(--primary-blue);
 }
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
+/* Default height for small screens */
+/* .welcomeImage {
+    height: 300px; 
+    background-image: url('../../images/01-66092e13ca395.webp');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+
+/* Larger height for medium screens (e.g., tablets) */
+/* @media (min-width: 768px) {
+    .welcomeImage {
+        height: 400px;
     }
-    a:hover {
-        color: #747bff;
+} */
+
+/* Even larger height for large screens (e.g., desktops) */
+/* @media (min-width: 1024px) {
+    .welcomeImage {
+        height: 500px; 
     }
-    button {
-        background-color: #f9f9f9;
+} */
+
+@media (max-width: 1250px) {
+    h1 {
+        font-size: 2.5em;
     }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    form#register {
+        line-height: 2.5;
+    }
+
+    .google-maps {
+        padding-bottom: 25%;
+    }
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    form#register {
+        line-height: 2.5;
+    }
+
+    .google-maps {
+        padding-bottom: 25%;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    form#register {
+        line-height: 2.1;
+    }
+
+    .google-maps {
+        padding-bottom: 75%;
+    }
+}
+
+
+@media (max-width: 391px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    form#register {
+        line-height: 2.0;
+    }
+
+    .google-maps {
+        padding-bottom: 75%;
+    }
+
 }

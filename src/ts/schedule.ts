@@ -16,7 +16,7 @@ export function schedule(element: HTMLDivElement) {
         <li>Food chim chim 6:30pm</li>
         <li>Talks from Justin & Pink</li>
         <li>After party starts 9:00pm</li>
-        <li>Light out (bed time) 11:45pm</li>
+        <li>Lights out (bed time) 11:45pm</li>
       </div>
     </div>
     `;

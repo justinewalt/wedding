@@ -31,3 +31,7 @@ export function specialGuests(element: HTMLDivElement) {
     </div>
     `;
 }
+
+
+// adding in nieces and korky for special guests
+// get photos of them all
