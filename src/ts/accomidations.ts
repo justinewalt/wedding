@@ -4,6 +4,7 @@ export function accomidations(element: HTMLDivElement) {
       	<h2>Accomodations</h2>
      	<h3>Baba Beach Club</h3>
       	<p>Click <a target="_blank" rel="noopener noreferrer" href="https://www.bababeachclub.com/lifestyle-travel/pink-and-justin-love-fest/">HERE</a> for a discount for staying at Baba Beach. is hosting our wedding at the Baan Chak building, if you stay here, tell them you're coming for our wedding and you'll get to pay 30% more!</p>
+		<img class="venueAndAccomidationPhotos" src="../../images/babaBeach.webp" alt="baba beach club private pool house"/>
 		<div id="rightJustify">
 			<div class="google-maps">
 				<iframe
@@ -20,10 +21,3 @@ export function accomidations(element: HTMLDivElement) {
     </div>
 `;
 }
-
-
-// add google maps iframe for baba beach
-// add baba beach for venue and 
-// should have separate venue section and 
-// venue is technically Baan Chok so make that the venue section
-// then for accommodations section do baba beach

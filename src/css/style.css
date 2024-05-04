@@ -100,6 +100,12 @@ h3 {
     line-height: 1.1;
 }
 
+h4 {
+    font-family: var(--medium-font);
+    font-size: 1.5em;
+    line-height: 1.1;
+}
+
 h1.title {
     text-shadow: 2px 2px 4px white;
 }
@@ -164,6 +170,14 @@ h1.title {
     display: flex;
     justify-content: flex-end; /* Ensures content aligns to the right */
     width: 100%; /* Ensures the div takes full width of its parent */
+}
+
+.specialGuestsPhotos {
+    width: 100%;
+}
+
+.venueAndAccomidationPhotos {
+    width: 100%;
 }
 
 .google-maps {
