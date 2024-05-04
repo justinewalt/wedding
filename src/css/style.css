@@ -144,20 +144,46 @@ h1.title {
     text-align: left;
 }
 
+#name, #email, #song  {
+    width: 80%;
+    height: 40px;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#attendanceOptions, #attendance {
+    height: 40px;
+    width: 35%;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#rightJustify {
+    display: flex;
+    justify-content: flex-end; /* Ensures content aligns to the right */
+    width: 100%; /* Ensures the div takes full width of its parent */
+}
+
 .google-maps {
     filter: grayscale(80%) invert(80%) contrast(100%);
-    position: relative;
-    padding-bottom: 75%;
-    height: 0;
-    overflow: hidden;
+    position: relative; /* Positions the .google-maps div relatively */
+    width: 50%;
+    padding-bottom: 25%; /* Adjusts aspect ratio */
+    height: 0; /* Keeps the aspect ratio technique working */
+    overflow: hidden; /* Ensures nothing overflows the bounds of the container */
 }
+
 .google-maps iframe {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
+    left: 50%; /* Shifts the iframe start point to the middle of the container */
+    transform: translateX(-50%); /* Adjusts the position back to align right edges together */
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
 }
+
 
 .buttonPadding {
     padding-top: 8px;
@@ -209,7 +235,7 @@ button:focus-visible {
     }
 } */
 
-@media (max-width: 1250px) {
+@media (max-width: 3250px) {
     h1 {
         font-size: 2.5em;
     }
@@ -226,8 +252,30 @@ button:focus-visible {
         line-height: 2.5;
     }
 
-    .google-maps {
-        padding-bottom: 25%;
+    #name, #email, #song  {
+        width: 30%;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    
+    #attendanceOptions, #attendance {
+        height: 50px;
+        width: 15%;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 1000px) {
+     #name, #email, #song  {
+        width: 35%;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+    
+    #attendanceOptions, #attendance {
+        height: 40px;
+        width: 25%;
+        font-size: 1.1rem;
     }
 }
 
@@ -249,7 +297,20 @@ button:focus-visible {
     }
 
     .google-maps {
-        padding-bottom: 25%;
+        padding-bottom: 50%;
+        width: 100%;
+    }
+
+     #name, #email, #song  {
+        width: 50%;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    #attendanceOptions, #attendance {
+        height: 40px;
+        width: 25%;
+        font-size: 1.1rem;
     }
 }
 
@@ -291,6 +352,19 @@ button:focus-visible {
 
     .google-maps {
         padding-bottom: 75%;
+        width: 100%;
+    }
+
+    #name, #email, #song  {
+        width: 60%;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    #attendanceOptions, #attendance {
+        height: 40px;
+        width: 25%;
+        font-size: 1rem;
     }
 }
 
@@ -330,8 +404,16 @@ button:focus-visible {
         line-height: 2.0;
     }
 
-    .google-maps {
-        padding-bottom: 75%;
+     #name, #email, #song  {
+        width: 70%;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    #attendanceOptions, #attendance {
+        height: 40px;
+        width: 35%;
+        font-size: 1rem;
     }
 
 }
